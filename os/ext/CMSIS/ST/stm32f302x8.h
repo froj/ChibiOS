@@ -72,7 +72,7 @@
 /**
   * @}
   */
-   
+
 /** @addtogroup Peripheral_interrupt_number_definition
   * @{
   */
@@ -642,40 +642,40 @@ typedef struct
   uint16_t  RESERVED2;  /*!< Reserved, 0x2A                                                 */
 } USART_TypeDef;
 
-/** 
+/**
   * @brief Universal Serial Bus Full Speed Device
   */
-  
+
 typedef struct
 {
-  __IO uint16_t EP0R;            /*!< USB Endpoint 0 register,                Address offset: 0x00 */ 
-  __IO uint16_t RESERVED0;       /*!< Reserved */     
+  __IO uint16_t EP0R;            /*!< USB Endpoint 0 register,                Address offset: 0x00 */
+  __IO uint16_t RESERVED0;       /*!< Reserved */
   __IO uint16_t EP1R;            /*!< USB Endpoint 1 register,                Address offset: 0x04 */
-  __IO uint16_t RESERVED1;       /*!< Reserved */       
+  __IO uint16_t RESERVED1;       /*!< Reserved */
   __IO uint16_t EP2R;            /*!< USB Endpoint 2 register,                Address offset: 0x08 */
-  __IO uint16_t RESERVED2;       /*!< Reserved */       
-  __IO uint16_t EP3R;            /*!< USB Endpoint 3 register,                Address offset: 0x0C */ 
-  __IO uint16_t RESERVED3;       /*!< Reserved */       
+  __IO uint16_t RESERVED2;       /*!< Reserved */
+  __IO uint16_t EP3R;            /*!< USB Endpoint 3 register,                Address offset: 0x0C */
+  __IO uint16_t RESERVED3;       /*!< Reserved */
   __IO uint16_t EP4R;            /*!< USB Endpoint 4 register,                Address offset: 0x10 */
-  __IO uint16_t RESERVED4;       /*!< Reserved */       
+  __IO uint16_t RESERVED4;       /*!< Reserved */
   __IO uint16_t EP5R;            /*!< USB Endpoint 5 register,                Address offset: 0x14 */
-  __IO uint16_t RESERVED5;       /*!< Reserved */       
+  __IO uint16_t RESERVED5;       /*!< Reserved */
   __IO uint16_t EP6R;            /*!< USB Endpoint 6 register,                Address offset: 0x18 */
-  __IO uint16_t RESERVED6;       /*!< Reserved */       
+  __IO uint16_t RESERVED6;       /*!< Reserved */
   __IO uint16_t EP7R;            /*!< USB Endpoint 7 register,                Address offset: 0x1C */
-  __IO uint16_t RESERVED7[17];   /*!< Reserved */     
+  __IO uint16_t RESERVED7[17];   /*!< Reserved */
   __IO uint16_t CNTR;            /*!< Control register,                       Address offset: 0x40 */
-  __IO uint16_t RESERVED8;       /*!< Reserved */       
+  __IO uint16_t RESERVED8;       /*!< Reserved */
   __IO uint16_t ISTR;            /*!< Interrupt status register,              Address offset: 0x44 */
-  __IO uint16_t RESERVED9;       /*!< Reserved */       
+  __IO uint16_t RESERVED9;       /*!< Reserved */
   __IO uint16_t FNR;             /*!< Frame number register,                  Address offset: 0x48 */
-  __IO uint16_t RESERVEDA;       /*!< Reserved */       
+  __IO uint16_t RESERVEDA;       /*!< Reserved */
   __IO uint16_t DADDR;           /*!< Device address register,                Address offset: 0x4C */
-  __IO uint16_t RESERVEDB;       /*!< Reserved */       
+  __IO uint16_t RESERVEDB;       /*!< Reserved */
   __IO uint16_t BTABLE;          /*!< Buffer Table address register,          Address offset: 0x50 */
-  __IO uint16_t RESERVEDC;       /*!< Reserved */       
+  __IO uint16_t RESERVEDC;       /*!< Reserved */
   __IO uint16_t LPMCSR;          /*!< LPM Control and Status register,        Address offset: 0x54 */
-  __IO uint16_t RESERVEDD;       /*!< Reserved */       
+  __IO uint16_t RESERVEDD;       /*!< Reserved */
 } USB_TypeDef;
 
 /**
@@ -829,7 +829,7 @@ typedef struct
 #define GPIOD               ((GPIO_TypeDef *) GPIOD_BASE)
 #define GPIOF               ((GPIO_TypeDef *) GPIOF_BASE)
 #define ADC1                ((ADC_TypeDef *) ADC1_BASE)
-#define ADC1_COMMON         ((ADC_Common_TypeDef *) ADC1_COMMON_BASE)
+#define ADC1_2_COMMON         ((ADC_Common_TypeDef *) ADC1_COMMON_BASE)
 #define USB                 ((USB_TypeDef *) USB_BASE)
 /**
   * @}
@@ -3082,7 +3082,7 @@ typedef struct
 #define  DAC_CR_MAMP1_3                      ((uint32_t)0x00000800)        /*!< Bit 3 */
 
 #define  DAC_CR_DMAEN1                       ((uint32_t)0x00001000)        /*!< DAC channel1 DMA enable */
-#define  DAC_CR_DMAUDRIE1                    ((uint32_t)0x00002000)        /*!< DAC channel1 DMA underrun IT enable */ 
+#define  DAC_CR_DMAUDRIE1                    ((uint32_t)0x00002000)        /*!< DAC channel1 DMA underrun IT enable */
 
 /*****************  Bit definition for DAC_SWTRIGR register  ******************/
 #define  DAC_SWTRIGR_SWTRIG1                 ((uint32_t)0x00000001)        /*!< DAC channel1 software trigger */
@@ -4207,7 +4207,7 @@ typedef struct
 #define  RCC_AHBENR_GPIODEN                  ((uint32_t)0x00100000)        /*!< GPIOD clock enable */
 #define  RCC_AHBENR_GPIOFEN                  ((uint32_t)0x00400000)        /*!< GPIOF clock enable */
 #define  RCC_AHBENR_TSCEN                    ((uint32_t)0x01000000)        /*!< TS clock enable */
-#define  RCC_AHBENR_ADC1EN                   ((uint32_t)0x10000000)        /*!< ADC1 clock enable */
+#define  RCC_AHBENR_ADC12EN                   ((uint32_t)0x10000000)        /*!< ADC1 clock enable */
 
 /*****************  Bit definition for RCC_APB2ENR register  ******************/
 #define  RCC_APB2ENR_SYSCFGEN                ((uint32_t)0x00000001)        /*!< SYSCFG clock enable */
@@ -5843,8 +5843,8 @@ typedef struct
 #define USB_CNTR_FRES                        ((uint16_t)0x0001)             /*!< Force USB RESet */
 
 /***************************  LPM register bits definitions  ******************/
-#define  USB_LPMCSR_BESL                     ((uint16_t)0x00F0)             /*!< BESL value received with last ACKed LPM Token  */ 
-#define  USB_LPMCSR_REMWAKE                  ((uint16_t)0x0008)             /*!< bRemoteWake value received with last ACKed LPM Token */ 
+#define  USB_LPMCSR_BESL                     ((uint16_t)0x00F0)             /*!< BESL value received with last ACKed LPM Token  */
+#define  USB_LPMCSR_REMWAKE                  ((uint16_t)0x0008)             /*!< bRemoteWake value received with last ACKed LPM Token */
 #define  USB_LPMCSR_LPMACK                   ((uint16_t)0x0002)             /*!< LPM Token acknowledge enable*/
 #define  USB_LPMCSR_LMPEN                    ((uint16_t)0x0001)             /*!< LPM support enable  */
 
@@ -5868,7 +5868,7 @@ typedef struct
 #define USB_EP5R                             (USB_BASE + 0x14)           /*!< endpoint 5 register address */
 #define USB_EP6R                             (USB_BASE + 0x18)           /*!< endpoint 6 register address */
 #define USB_EP7R                             (USB_BASE + 0x1C)           /*!< endpoint 7 register address */
-/* bit positions */ 
+/* bit positions */
 #define USB_EP_CTR_RX                        ((uint16_t)0x8000)             /*!<  EndPoint Correct TRansfer RX */
 #define USB_EP_DTOG_RX                       ((uint16_t)0x4000)             /*!<  EndPoint Data TOGGLE RX */
 #define USB_EPRX_STAT                        ((uint16_t)0x3000)             /*!<  EndPoint RX STATus bit field */
@@ -5889,7 +5889,7 @@ typedef struct
 #define USB_EP_ISOCHRONOUS                   ((uint16_t)0x0400)             /*!< EndPoint ISOCHRONOUS */
 #define USB_EP_INTERRUPT                     ((uint16_t)0x0600)             /*!< EndPoint INTERRUPT */
 #define USB_EP_T_MASK      (~USB_EP_T_FIELD & USB_EPREG_MASK)
-                                                                 
+
 #define USB_EPKIND_MASK    (~USB_EP_KIND & USB_EPREG_MASK)            /*!< EP_KIND EndPoint KIND */
                                                                                /*!< STAT_TX[1:0] STATus for TX transfer */
 #define USB_EP_TX_DIS                        ((uint16_t)0x0000)             /*!< EndPoint TX DISabled */
@@ -5959,7 +5959,7 @@ typedef struct
 /****************************** ADC Instances *********************************/
 #define IS_ADC_ALL_INSTANCE(INSTANCE) ((INSTANCE) == ADC1)
 
-#define IS_ADC_COMMON_INSTANCE(INSTANCE) ((INSTANCE) == ADC1_COMMON)
+#define IS_ADC_COMMON_INSTANCE(INSTANCE) ((INSTANCE) == ADC1_2_COMMON)
 
 /****************************** CAN Instances *********************************/
 #define IS_CAN_ALL_INSTANCE(INSTANCE) ((INSTANCE) == CAN)
@@ -6276,12 +6276,12 @@ typedef struct
 #define IS_UART_INSTANCE(INSTANCE)   (((INSTANCE) == USART1) || \
                                       ((INSTANCE) == USART2) || \
                                       ((INSTANCE) == USART3))
-                                      
+
 /******************** UART Instances : Half-Duplex mode **********************/
 #define IS_UART_HALFDUPLEX_INSTANCE(INSTANCE)   (((INSTANCE) == USART1) || \
                                                  ((INSTANCE) == USART2) || \
                                                  ((INSTANCE) == USART3))
-                                      
+
 /******************** UART Instances : LIN mode **********************/
 #define IS_UART_LIN_INSTANCE(INSTANCE)   ((INSTANCE) == USART1)
 
@@ -6319,7 +6319,7 @@ typedef struct
 /*  For a painless codes migration between the STM32F3xx device product       */
 /*  lines, the aliases defined below are put in place to overcome the         */
 /*  differences in the interrupt handlers and IRQn definitions.               */
-/*  No need to update developed interrupt code when moving across             */ 
+/*  No need to update developed interrupt code when moving across             */
 /*  product lines within the same STM32F3 Family                              */
 /******************************************************************************/
 
